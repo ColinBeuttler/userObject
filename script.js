@@ -3,8 +3,8 @@
 // html elements
 const formEl = document.querySelector('.userForm')
 const submitEl = document.querySelector('.submitBtn')
-const userNameEl = document.querySelector('.userName--Input')
-const userPasswordEl = document.querySelector('.userPassword--Input')
+const userNameEl = document.querySelector('.userName--Input').value
+const userPasswordEl = document.querySelector('.userPassword--Input').value
 
 const user ={
     user: 'Colin',
@@ -14,28 +14,30 @@ const user ={
 
 
 // object creation
-class UserObj {
-    constructor(userName, userPassword){
-        this.userName = userName
-        this.userPassword = userPassword
-    }
-}
+// class UserObj {
+//     constructor(userName, userPassword){
+//         this.userName = userName
+//         this.userPassword = userPassword
+//     }
+// }
 
-// app functions
+// // app functions
 
-class App {
-     #userObj = []
+// class App {
+//      #userObj = []
 
-     constructor(){
-         form.addEventListener('submit', this._userObj.bind(this))
+//      constructor(){
+//          form.addEventListener('submit', this._userObj.bind(this))
 
-     }
-}
+//      }
+// }
 
 // const userName = JSON.stringify(userNameEl.value)
 // const userPassword = JSON.stringify(userPasswordEl.value)
 
-console.log(user)
+console.log(userNameEl, userPasswordEl)
+
+
 
 // submit element
 
