@@ -3,8 +3,12 @@
 // html elements
 const formEl = document.querySelector('.userForm')
 const submitEl = document.querySelector('.submitBtn')
-const userNameEl = document.querySelector('.userName--Input').value
-const userPasswordEl = document.querySelector('.userPassword--Input').value
+const userNameEl = document.querySelector('.userName--Input')
+const userPasswordEl = document.querySelector('.userPassword--Input')
+
+// userNameEl.addEventListener('change', () =>{
+//     userNameEl.innerText = userNameEl.value
+// })
 
 const user ={
     user: 'Colin',
