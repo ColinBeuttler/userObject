@@ -2,21 +2,21 @@
 
 // html elements
 const formEl = document.querySelector('.userForm');
-const submitEl = document.querySelector('.submitBtn');
+// const submitEl = document.getElementsByClassName('.submitBtn');
 
 const users = [];
 
 const createObj = e => {
   //   e.preventDefault();
   let userObj = {
-    name: document.querySelector('.userName--Input').value,
-    password: document.querySelector('.userPassword--Input').value,
+    name: document.getElementsByClassName('.userName--Input').value,
+    password: document.getElementsByClassName('.userPassword--Input').value,
   };
   users.push(userObj);
   console.log('added', { users });
 };
 
-submitEl.addEventListener('click', createObj());
+document.querySelector('.submitBtn').addEventListener('click', createObj());
 
 // object creation
 // class UserObj {
