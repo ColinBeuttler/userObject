@@ -1,4 +1,3 @@
-
 body {
   height: 100vh;
   display: block;
@@ -16,24 +15,23 @@ h1 {
 }
 
 .userForm {
-    display:block;
+  display: block;
   line-height: 1;
   width: 100%;
   padding: 10px;
   text-align: center;
-  color: white; 
+  color: white;
 }
 
 .container {
-    margin: auto;
-    align-content: center;
-    width: 25%;
-    border-radius: 10%;
-    background-color: rgba(126, 124, 130, 0.55);
-    
-  }
+  margin: auto;
+  align-content: center;
+  width: 25%;
+  border-radius: 10%;
+  /* background-color: rgba(126, 124, 130, 0.55); */
+}
 
-  .submitBtn{
-      color: ghostwhite;
-      background-color: seagreen;
-  }
+.submitBtn {
+  color: ghostwhite;
+  background-color: seagreen;
+}

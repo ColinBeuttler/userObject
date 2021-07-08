@@ -1,21 +1,22 @@
 'use strict';
 
 // html elements
-const formEl = document.querySelector('.userForm')
-const submitEl = document.querySelector('.submitBtn')
-const userNameEl = document.querySelector('.userName--Input')
-const userPasswordEl = document.querySelector('.userPassword--Input')
+const formEl = document.querySelector('.userForm');
+const submitEl = document.querySelector('.submitBtn');
 
-// userNameEl.addEventListener('change', () =>{
-//     userNameEl.innerText = userNameEl.value
-// })
+const users = [];
 
-const user ={
-    user: 'Colin',
-    password : '7339'
-}
+const createObj = e => {
+  //   e.preventDefault();
+  let userObj = {
+    name: document.querySelector('.userName--Input').value,
+    password: document.querySelector('.userPassword--Input').value,
+  };
+  users.push(userObj);
+  console.log('added', { users });
+};
 
-
+submitEl.addEventListener('click', createObj());
 
 // object creation
 // class UserObj {
@@ -39,9 +40,7 @@ const user ={
 // const userName = JSON.stringify(userNameEl.value)
 // const userPassword = JSON.stringify(userPasswordEl.value)
 
-console.log(userNameEl, userPasswordEl)
-
-
+// console.log(userNameEl, userPasswordEl);
 
 // submit element
 
@@ -50,4 +49,3 @@ console.log(userNameEl, userPasswordEl)
 // display new users
 
 // save users in the console
-
