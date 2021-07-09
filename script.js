@@ -9,8 +9,8 @@ const users = [];
 const createObj = e => {
   //   e.preventDefault();
   let userObj = {
-    name: document.getElementsByClassName('.userName--Input').value,
-    password: document.getElementsByClassName('.userPassword--Input').value,
+    name: document.querySelector('.userName--Input').value,
+    password: document.querySelector('.userPassword--Input').value,
   };
   users.push(userObj);
   console.log('added', { users });
