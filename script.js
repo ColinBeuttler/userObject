@@ -6,7 +6,7 @@ const formEl = document.querySelector('.userForm');
 
 const users = [];
 
-const createObj = e => {
+const createObj = () => {
   //   e.preventDefault();
   let userObj = {
     name: document.querySelector('.userName--Input').value,
