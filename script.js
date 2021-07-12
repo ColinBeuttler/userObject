@@ -28,7 +28,7 @@ const createObj = () => {
 // button callback
 submitEl.addEventListener('click', createObj);
 
-localStorage.setItem('users', existingUser.toString());
+localStorage.setItem('users', JSON.stringify(this.existingUser));
 
 // object creation
 // class UserObj {
