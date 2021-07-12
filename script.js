@@ -2,21 +2,33 @@
 
 // html elements
 const formEl = document.querySelector('.userForm');
-// const submitEl = document.getElementsByClassName('.submitBtn');
+const submitEl = document.querySelector('.submitBtn');
+const userNameEl = document.querySelector('.userName--Input');
+const userPasswordEl = document.querySelector('.userPassword--Input');
 
-const users = [];
+let users = [];
+
+let existingUser = localStorage.getItem(users);
+existingUser = existingUser ? existingUser.split(',') : [];
 
 const createObj = () => {
-  //   e.preventDefault();
+  // user oject created
   let userObj = {
-    name: document.querySelector('.userName--Input').value,
-    password: document.querySelector('.userPassword--Input').value,
+    name: userNameEl.value,
+    password: userPasswordEl.value,
   };
+  // pushed to user array
   users.push(userObj);
+  // clear fields
+  formEl.reset();
   console.log('added', { users });
+  existingUser.push(localStorage);
+  console.log(localStorage);
 };
+// button callback
+submitEl.addEventListener('click', createObj);
 
-document.querySelector('.submitBtn').addEventListener('click', createObj());
+localStorage.setItem('users', existingUser.toString());
 
 // object creation
 // class UserObj {
