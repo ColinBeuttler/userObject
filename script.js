@@ -22,8 +22,8 @@ const createObj = () => {
   // clear fields
   formEl.reset();
   console.log('added', { users });
-  existingUser.push(localStorage);
-  console.log(localStorage);
+  // existingUser.push(localStorage);
+  // console.log(localStorage);
 };
 // button callback
 submitEl.addEventListener('click', createObj);
