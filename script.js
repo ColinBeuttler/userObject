@@ -21,16 +21,11 @@ const createObj = () => {
     name: userNameEl.value,
     password: userPasswordEl.value,
   };
-
   // pushed to user array
   users.push(userObj);
-  // clear fields
   formEl.remove();
   headerEl.append(welcomeMsgEle);
   console.log('added', { users });
-
-  // existingUser.push(localStorage);
-  // console.log(localStorage);
 };
 // button callback
 submitEl.addEventListener('click', createObj);
