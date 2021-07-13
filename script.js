@@ -5,8 +5,12 @@ const formEl = document.querySelector('.userForm');
 const submitEl = document.querySelector('.submitBtn');
 const userNameEl = document.querySelector('.userName--Input');
 const userPasswordEl = document.querySelector('.userPassword--Input');
+const headerEl = document.querySelector('.header');
 
 let users = [];
+
+let welcomeMsgEle = document.createElement('div');
+welcomeMsgEle.innerHTML = `Welcome to userObjects ${users.name}`;
 
 let existingUser = localStorage.getItem(users);
 existingUser = existingUser ? existingUser.split(',') : [];
@@ -17,11 +21,14 @@ const createObj = () => {
     name: userNameEl.value,
     password: userPasswordEl.value,
   };
+
   // pushed to user array
   users.push(userObj);
   // clear fields
-  formEl.reset();
+  formEl.remove();
+  headerEl.append(welcomeMsgEle);
   console.log('added', { users });
+
   // existingUser.push(localStorage);
   // console.log(localStorage);
 };
