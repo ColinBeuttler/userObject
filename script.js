@@ -8,11 +8,12 @@ const userPasswordEl = document.querySelector('.userPassword--Input');
 const headerEl = document.querySelector('.header');
 
 let users = [];
+localStorage.setItem('users', JSON.stringify(users))
 
 let welcomeMsgEle = document.createElement('div');
 welcomeMsgEle.innerHTML = ' ';
 
-// let existingUser = localStorage.getItem(users);
+let existingUsers = JSON.parse(localStorage.getItem(users));
 // existingUser = existingUser ? existingUser.split(',') : [];
 
 const createObj = () => {
@@ -30,7 +31,7 @@ const createObj = () => {
 // button callback
 submitEl.addEventListener('click', createObj);
 
-localStorage.setItem('users', JSON.stringify(this.existingUser));
+console.log(localStorage)
 
 // object creation
 // class UserObj {
