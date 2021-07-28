@@ -10,10 +10,10 @@ const headerEl = document.querySelector('.header');
 let users = [];
 
 let welcomeMsgEle = document.createElement('div');
-welcomeMsgEle.innerHTML = `Welcome to userObjects ${users.name}`;
+welcomeMsgEle.innerHTML = ' ';
 
-let existingUser = localStorage.getItem(users);
-existingUser = existingUser ? existingUser.split(',') : [];
+// let existingUser = localStorage.getItem(users);
+// existingUser = existingUser ? existingUser.split(',') : [];
 
 const createObj = () => {
   // user oject created
@@ -24,7 +24,7 @@ const createObj = () => {
   // pushed to user array
   users.push(userObj);
   formEl.remove();
-  headerEl.append(welcomeMsgEle);
+  headerEl.append(`\n Welcome ${userObj.name}`);
   console.log('added', { users });
 };
 // button callback
