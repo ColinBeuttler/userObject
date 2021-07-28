@@ -8,7 +8,7 @@ const userPasswordEl = document.querySelector('.userPassword--Input');
 const headerEl = document.querySelector('.header');
 
 let users = [];
-localStorage.setItem('users', JSON.stringify(users))
+
 
 let welcomeMsgEle = document.createElement('div');
 welcomeMsgEle.innerHTML = ' ';
@@ -27,6 +27,7 @@ const createObj = () => {
   formEl.remove();
   headerEl.append(`\n Welcome ${userObj.name}`);
   console.log('added', { users });
+  localStorage.setItem('users', JSON.stringify(users))
 };
 // button callback
 submitEl.addEventListener('click', createObj);
