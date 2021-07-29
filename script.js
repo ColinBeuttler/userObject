@@ -9,11 +9,14 @@ const headerEl = document.querySelector('.header');
 
 let users = [];
 
+users.push(JSON.parse(localStorage.getItem('accounts')));
+// localStorage.setItem('accounts', JSON.stringify(users));
+
 
 let welcomeMsgEle = document.createElement('div');
 welcomeMsgEle.innerHTML = ' ';
 
-let existingUsers = JSON.parse(localStorage.getItem(users));
+// let existingUsers = JSON.parse(localStorage.getItem(users));
 // existingUser = existingUser ? existingUser.split(',') : [];
 
 const createObj = () => {
@@ -26,13 +29,14 @@ const createObj = () => {
   users.push(userObj);
   formEl.remove();
   headerEl.append(`\n Welcome ${userObj.name}`);
-  console.log('added', { users });
-  localStorage.setItem('users', JSON.stringify(users))
+  console.log('added', { userObj });
+  localStorage.setItem('accounts', JSON.stringify(users))
 };
 // button callback
 submitEl.addEventListener('click', createObj);
 
 console.log(localStorage)
+console.log(users)
 
 // object creation
 // class UserObj {
