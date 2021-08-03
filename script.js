@@ -26,7 +26,7 @@ const UserObj =function(userName, userPassword){
 
 const pushObj = () => {
   // user oject created
-  const newAccount = new UserObj(this)
+  const newAccount = new UserObj()
   // pushed to user array
   users.push(newAccount);
   formEl.remove();
