@@ -19,21 +19,24 @@ welcomeMsgEle.innerHTML = ' ';
 // let existingUsers = JSON.parse(localStorage.getItem(users));
 // existingUser = existingUser ? existingUser.split(',') : [];
 
-const createObj = () => {
+const UserObj =function(userName, userPassword){
+  this.userName = userName
+  this.userPassword = userPassword
+}
+
+const pushObj = () => {
   // user oject created
-  let userObj = {
-    name: userNameEl.value,
-    password: userPasswordEl.value,
-  };
+  const newAccount = new UserObj(this)
   // pushed to user array
-  users.push(userObj);
+  users.push(newAccount);
   formEl.remove();
-  headerEl.append(`\n Welcome ${userObj.name}`);
-  console.log('added', { userObj });
+  headerEl.append(`\n Welcome ${newAccount.name}`);
+  console.log('added', { newAccount });
   localStorage.setItem('accounts', JSON.stringify(users))
 };
 // button callback
-submitEl.addEventListener('click', createObj);
+submitEl.addEventListener('click', pushObj);
+
 
 console.log(localStorage)
 console.log(users)
