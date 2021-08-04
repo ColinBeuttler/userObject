@@ -3,9 +3,12 @@
 // html elements
 const formEl = document.querySelector('.userForm');
 const submitEl = document.querySelector('.submitBtn');
+const loginEl = document.querySelector('.loginBtn');
 const userNameEl = document.querySelector('.userName--Input');
 const userPasswordEl = document.querySelector('.userPassword--Input');
+const userEmailEl = document.querySelector('.userEmail--Input');
 const headerEl = document.querySelector('.header');
+const regNewUserEl = document.querySelector('.regNewUser');
 
 let users = [];
 
@@ -19,10 +22,17 @@ welcomeMsgEle.innerHTML = ' ';
 // let existingUsers = JSON.parse(localStorage.getItem(users));
 // existingUser = existingUser ? existingUser.split(',') : [];
 
-const UserObj =function(userName, userPassword){
+// Object Prototypes
+
+const UserObj =function(userEmail, userName, userPassword){
+  this.userEmail = userEmail
   this.userName = userName
   this.userPassword = userPassword
 }
+
+// Button Methods
+
+// create User Object
 
 const pushObj = () => {
   // user oject created
@@ -34,8 +44,20 @@ const pushObj = () => {
   console.log('added', { newAccount });
   localStorage.setItem('accounts', JSON.stringify(users))
 };
+
+// Initate New User
+
+const newUserinit =function(loginBtnEl){
+  loginBtnEl.setAttribute('style', 'display:none')
+  console.log('new user form')
+}
+
 // button callback
 submitEl.addEventListener('click', pushObj);
+
+regNewUserEl.addEventListener('click', newUserinit)
+
+
 
 
 console.log(localStorage)

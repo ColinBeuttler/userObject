@@ -12,27 +12,51 @@
     <h1 class="header">OOP (Object Oriented Programing) User Page</h1>
 
     <div class="container">
+
       <form class="userForm">
-        <label for="username" class="username--Label"></label>
-        <input
+
+        <div class="userEmailDiv">
+          <label for="userEmail" class="userEmail--Label"></label>
+          <input
+          type="text"
+          placeholder="Email"
+          class="userEmail--Input"
+          autofocus/>
+          <br /><br />
+        </div >
+
+        <div class="userNameDiv">
+          <label for="username" class="userName--Label"></label>
+          <input
           type="text"
           placeholder="username"
           class="userName--Input"
           autofocus
-        /><br /><br />
-        <label for="password" class="userPassword--Label"></label>
-        <input
+          /><br /><br />
+        </div>
+
+        <div class="userPasswordDiv">
+          <label for="password" class="userPassword--Label"></label>
+          <input
           type="password"
           placeholder="password"
-          class="userPassword--Input"
-        /><br /><br />
-        <input type="button" class="submitBtn" value="Login" />
+          class="userPassword--Input"/>
+          <br /><br />
+        </div>
+        
+        <input type="button" class="submitBtn" value="Register" />
+
+        <input type="button" class="loginBtn" value="Login" />
+
       </form>
+
+      <div class="regNewUser">
+        <p>
+          New User
+        </p>
+      </div>
+      
     </div>
-    <div class="container">
-      <form class="userForm">
-        <input type="hidden" class="objectEntry" />
-      </form>
-    </div>
+
   </body>
 </html>

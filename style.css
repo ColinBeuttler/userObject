@@ -17,8 +17,7 @@ h1 {
 .userForm {
   display: block;
   line-height: 1;
-  width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   text-align: center;
   color: white;
 }
@@ -26,12 +25,27 @@ h1 {
 .container {
   margin: auto;
   align-content: center;
-  width: 25%;
-  border-radius: 10%;
   /* background-color: rgba(126, 124, 130, 0.55); */
 }
 
 .submitBtn {
   color: ghostwhite;
   background-color: seagreen;
+  display: none;
 }
+
+.loginBtn {
+  color: ghostwhite;
+  background-color: seagreen;
+  /* display: none; */
+}
+
+.regNewUser{
+  /* display: none; */
+  color: cyan;
+  text-align: center;
+}
+
+/* .userEmailDiv{
+display: none;
+} */
