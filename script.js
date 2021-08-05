@@ -3,7 +3,7 @@
 // html elements
 const formEl = document.querySelector('.userForm');
 const submitEl = document.querySelector('.submitBtn');
-const loginEl = document.getElementsByClassName('.loginBtn');
+const loginEl = document.querySelector('.loginBtn');
 const userNameEl = document.querySelector('.userName--Input');
 const userPasswordEl = document.querySelector('.userPassword--Input');
 const userEmailEl = document.querySelector('.userEmail--Input');
@@ -56,12 +56,12 @@ const regUserDisplay = regNewUserEl.style.display;
 const existingUserDisplay = existingUserEl.style.display;
 
 // Hide/Show display El
-const newUserinit =function(displayEl){ 
-  if(displayEl == "block"){
-    displayEl.style.display = "none"
+const newUserinit =function(loginDisplay){ 
+  if(loginDisplay == "block"){
+    loginDisplay.style.display = "none"
   }
   else{
-    displayEl.style.display = "block"
+    loginDisplay.style.display = "block"
   }
   console.log('new user form')
 }
