@@ -37,15 +37,16 @@ h1 {
 .loginBtn {
   color: ghostwhite;
   background-color: seagreen;
-  /* display: none; */
+  display: inline-block;
+  
 }
 
 .regNewUser{
-  /* display: none; */
+  display: block;
   color: cyan;
   text-align: center;
 }
 
-/* .userEmailDiv{
-display: none;
-} */
+.userEmailDiv{
+display: block;
+}
