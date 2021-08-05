@@ -48,28 +48,33 @@ const pushObj = () => {
 
 // Initate New User
 
-// CSS display variables
-const submitDisplay = submitEl.style.display;
-const loginDisplay = loginEl.style.display;
-const userEmailDisplay = userEmailEl.style.display;
-const regUserDisplay = regNewUserEl.style.display;
-const existingUserDisplay = existingUserEl.style.display;
-
-// Hide/Show display El
-const newUserinit =function(loginDisplay){ 
-  if(loginDisplay == "block"){
-    loginDisplay.style.display = "none"
+// Hide/Show display CSS display 
+const newUserinit = function(){ 
+  {
+    document.querySelector('.userEmailDiv').style.display = "block"
+    document.querySelector('.loginBtn').style.display ="none"
+    document.querySelector('.submitBtn').style.display ="inline-block"
+    document.querySelector('.regNewUser').style.display ="none"
+    document.querySelector('.existingUser').style.display ="block"
   }
-  else{
-    loginDisplay.style.display = "block"
-  }
+ 
   console.log('new user form')
+}
+
+const existingLogin = function(){
+    document.querySelector('.userEmailDiv').style.display = "none"
+    document.querySelector('.loginBtn').style.display ="inline-block"
+    document.querySelector('.submitBtn').style.display ="none"
+    document.querySelector('.regNewUser').style.display ="block"
+    document.querySelector('.existingUser').style.display ="none"
 }
 
 // button callback
 submitEl.addEventListener('click', pushObj);
 
 regNewUserEl.addEventListener('click', newUserinit)
+
+existingUserEl.addEventListener('click', existingLogin)
 
 
 

@@ -47,6 +47,12 @@ h1 {
   text-align: center;
 }
 
+.existingUser{
+  display: none;
+  color: cyan;
+  text-align: center;
+}
+
 .userEmailDiv{
-display: block;
+display: none;
 }
