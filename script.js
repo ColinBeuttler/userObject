@@ -3,12 +3,13 @@
 // html elements
 const formEl = document.querySelector('.userForm');
 const submitEl = document.querySelector('.submitBtn');
-const loginEl = document.querySelector('.loginBtn');
+const loginEl = document.getElementsByClassName('.loginBtn');
 const userNameEl = document.querySelector('.userName--Input');
 const userPasswordEl = document.querySelector('.userPassword--Input');
 const userEmailEl = document.querySelector('.userEmail--Input');
 const headerEl = document.querySelector('.header');
 const regNewUserEl = document.querySelector('.regNewUser');
+const existingUserEl = document.querySelector('.existingUser');
 
 let users = [];
 
@@ -47,8 +48,21 @@ const pushObj = () => {
 
 // Initate New User
 
-const newUserinit =function(loginBtnEl){
-  loginBtnEl.setAttribute('style', 'display:none')
+// CSS display variables
+const submitDisplay = submitEl.style.display;
+const loginDisplay = loginEl.style.display;
+const userEmailDisplay = userEmailEl.style.display;
+const regUserDisplay = regNewUserEl.style.display;
+const existingUserDisplay = existingUserEl.style.display;
+
+// Hide/Show display El
+const newUserinit =function(displayEl){ 
+  if(displayEl == "block"){
+    displayEl.style.display = "none"
+  }
+  else{
+    displayEl.style.display = "block"
+  }
   console.log('new user form')
 }
 
