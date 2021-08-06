@@ -17,8 +17,8 @@ users.push(JSON.parse(localStorage.getItem('accounts')));
 // localStorage.setItem('accounts', JSON.stringify(users));
 
 
-let welcomeMsgEle = document.createElement('div');
-welcomeMsgEle.innerHTML = ' ';
+// let welcomeMsgEle = document.createElement('div');
+// welcomeMsgEle.innerHTML = ' ';
 
 // let existingUsers = JSON.parse(localStorage.getItem(users));
 // existingUser = existingUser ? existingUser.split(',') : [];
@@ -50,15 +50,13 @@ const pushObj = () => {
 
 // Hide/Show display CSS display 
 const newUserinit = function(){ 
-  {
+  
     document.querySelector('.userEmailDiv').style.display = "block"
     document.querySelector('.loginBtn').style.display ="none"
     document.querySelector('.submitBtn').style.display ="inline-block"
     document.querySelector('.regNewUser').style.display ="none"
     document.querySelector('.existingUser').style.display ="block"
-  }
- 
-  console.log('new user form')
+  
 }
 
 const existingLogin = function(){
