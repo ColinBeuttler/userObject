@@ -11,6 +11,8 @@ const headerEl = document.querySelector('.header');
 const regNewUserEl = document.querySelector('.regNewUser');
 const existingUserEl = document.querySelector('.existingUser');
 
+
+
 let users = [];
 
 users.push(JSON.parse(localStorage.getItem('accounts')));
@@ -25,10 +27,10 @@ users.push(JSON.parse(localStorage.getItem('accounts')));
 
 // Object Prototypes
 
-const UserObj =function(userEmail, userName, userPassword){
-  this.userEmail = userEmail
-  this.userName = userName
-  this.userPassword = userPassword
+const UserObj =function(){
+  this.userEmail = document.querySelector('.userEmail--Input').value
+  this.userName = document.querySelector('.userName--Input').value
+  this.userPassword = document.querySelector('.userPassword--Input').value
 }
 
 // Button Methods
