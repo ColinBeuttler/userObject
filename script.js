@@ -43,7 +43,7 @@ const pushObj = () => {
   // pushed to user array
   users.push(newAccount);
   formEl.remove();
-  headerEl.append(`\n Welcome ${newAccount.name}`);
+  headerEl.append(`\n Welcome ${newAccount.userName}`);
   console.log('added', { newAccount });
   localStorage.setItem('accounts', JSON.stringify(users))
 };
