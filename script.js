@@ -27,10 +27,12 @@ users.push(JSON.parse(localStorage.getItem('accounts')));
 
 // Object Prototypes
 
-const UserObj =function(){
-  this.userEmail = document.querySelector('.userEmail--Input').value
+class UserObj {
+  constructor(){
+  this.userEmail = document.querySelector('.userEmail--Input').value 
   this.userName = document.querySelector('.userName--Input').value
   this.userPassword = document.querySelector('.userPassword--Input').value
+}
 }
 
 // Button Methods
@@ -52,13 +54,11 @@ const pushObj = () => {
 
 // Hide/Show display CSS display 
 const newUserinit = function(){ 
-  
     document.querySelector('.userEmailDiv').style.display = "block"
     document.querySelector('.loginBtn').style.display ="none"
     document.querySelector('.submitBtn').style.display ="inline-block"
     document.querySelector('.regNewUser').style.display ="none"
     document.querySelector('.existingUser').style.display ="block"
-  
 }
 
 const existingLogin = function(){
