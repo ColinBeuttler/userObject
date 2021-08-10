@@ -37,9 +37,17 @@ class UserObj {
 
 // Button Methods
 
+// Login existing user/ check for account
+
+const checkAccLogin = function() {
+  formEl.remove();
+  console.log('logged in');
+  headerEl.append(`\n Welcome Back`);
+}
+
 // create User Object
 
-const pushObj = () => {
+const pushObj = function() {
   // user oject created
   const newAccount = new UserObj()
   // pushed to user array
@@ -75,6 +83,8 @@ submitEl.addEventListener('click', pushObj);
 regNewUserEl.addEventListener('click', newUserinit)
 
 existingUserEl.addEventListener('click', existingLogin)
+
+loginEl.addEventListener('click', checkAccLogin)
 
 
 
