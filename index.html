@@ -12,57 +12,60 @@
     <h1 class="header">OOP (Object Oriented Programing) User Page</h1>
 
     <div class="container">
-
       <form class="userForm">
-
-        <div class="userEmailDiv">
-          <label for="userEmail" class="userEmail--Label"></label>
-          <input
-          type="text"
-          placeholder="Email"
-          class="userEmail--Input"
-          autofocus/>
-          <br /><br />
-        </div >
+        <div class="form__row form__row--hidden">
+          <div class="userEmailDiv">
+            <label for="userEmail" class="userEmail--Label"></label>
+            <input
+              type="text"
+              placeholder="Email"
+              class="userEmail--Input"
+              autofocus
+            />
+            <br /><br />
+          </div>
+        </div>
 
         <div class="userNameDiv">
           <label for="username" class="userName--Label"></label>
           <input
-          type="text"
-          placeholder="username"
-          class="userName--Input"
-          autofocus
+            type="text"
+            placeholder="username"
+            class="userName--Input"
+            autofocus
           /><br /><br />
         </div>
 
         <div class="userPasswordDiv">
           <label for="password" class="userPassword--Label"></label>
           <input
-          type="password"
-          placeholder="password"
-          class="userPassword--Input"/>
+            type="password"
+            placeholder="password"
+            class="userPassword--Input"
+          />
           <br /><br />
         </div>
-        
-        <input type="button" class="submitBtn" value="Register" />
 
-        <input type="button" class="loginBtn" value="Login" />
-
-        <div class="regNewUser">
-          <p>
-            New User
-          </p>
+        <div class="form__row form__row--hidden">
+          <input type="button" class="submitBtn" value="Register" />
         </div>
 
-        <div class="existingUser">
-          <p>
-            Already Registered
-          </p>
+        <div class="form__row">
+          <input type="button" class="loginBtn" value="Login" />
         </div>
 
+        <div class="form__row form__row--hidden">
+          <div class="regNewUser">
+            <p>New User</p>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="existingUser">
+            <p>Already Registered</p>
+          </div>
+        </div>
       </form>
-
     </div>
-
   </body>
 </html>
