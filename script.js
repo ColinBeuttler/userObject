@@ -41,6 +41,13 @@ users.push(JSON.parse(localStorage.getItem('accounts')));
 
 // console.log(userNameEl, userPasswordEl);
 
+// App Object
+class App{
+  constructor(){
+    
+  }
+}
+
 
 // Object Class Prototypes
 class UserObj {
