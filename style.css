@@ -28,31 +28,42 @@ h1 {
   /* background-color: rgba(126, 124, 130, 0.55); */
 }
 
+.form__row--hidden {
+  display: none;
+}
+
 .submitBtn {
   color: ghostwhite;
   background-color: seagreen;
-  display: none;
+  /* display: none; */
 }
 
 .loginBtn {
   color: ghostwhite;
   background-color: seagreen;
   display: inline-block;
-  
 }
 
-.regNewUser{
+.regNewUser {
   display: block;
   color: cyan;
   text-align: center;
+  cursor: pointer;
 }
 
-.existingUser{
-  display: none;
+.existingUser {
   color: cyan;
   text-align: center;
+  cursor: pointer;
 }
 
-.userEmailDiv{
-display: none;
+.regNewUser:hover {
+  text-decoration: underline;
 }
+
+.existingUser:hover {
+  text-decoration: underline;
+}
+
+/* .userEmailDiv {
+} */

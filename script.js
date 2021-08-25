@@ -12,12 +12,8 @@ const regNewUserEl = document.querySelector('.regNewUser');
 const existingUserEl = document.querySelector('.existingUser');
 
 
-// User Array
-let users = [];
 
-users.push(JSON.parse(localStorage.getItem('accounts')));
 // localStorage.setItem('accounts', JSON.stringify(users));
-
 
 // let welcomeMsgEle = document.createElement('div');
 // welcomeMsgEle.innerHTML = ' ';
@@ -43,59 +39,70 @@ users.push(JSON.parse(localStorage.getItem('accounts')));
 
 // App Object
 class App{
+
+// User Array
+ users = [];
+
   constructor(){
-    
+     // get local Storage
+     this._getLocalStorage();
+
   }
-}
+  
+
+  _setLocalStorage() {
+    localStorage.setItem('accounts', JSON.stringify(this.users));
+  }
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('accounts'));
+    if (!data) return;
+
+    this.#users = data;
+    this.#users.forEach(user => {
+      this._renderWorkout(user);
+    });
+} }
 
 
 // Object Class Prototypes
 class UserObj {
-  constructor(){
-  this.userEmail = document.querySelector('.userEmail--Input').value 
-  this.userName = document.querySelector('.userName--Input').value
-  this.userPassword = document.querySelector('.userPassword--Input').value
-}
+  constructor() {
+    this.userEmail = document.querySelector('.userEmail--Input').value;
+    this.userName = document.querySelector('.userName--Input').value;
+    this.userPassword = document.querySelector('.userPassword--Input').value;
+  }
 }
 
 /////////////////////////// Button Methods
 
 // Login existing user/ check for account
-const checkAccLogin = function() {
+const checkAccLogin = function () {
   formEl.remove();
   console.log('logged in');
   headerEl.append(`\n Welcome Back`);
-}
+};
 
 // create User Object
-const pushObj = function() {
+const pushObj = function () {
   // user oject created
-  const newAccount = new UserObj()
+  const newAccount = new UserObj();
   // pushed to user array
   users.push(newAccount);
   formEl.remove();
   headerEl.append(`\n Welcome ${newAccount.userName}`);
   console.log('added', { newAccount });
-  localStorage.setItem('accounts', JSON.stringify(users))
+  localStorage.setItem('accounts', JSON.stringify(users));
 };
 
 ////////////////////// Hide/Show CSS display
-// Display for new User 
-const newUserinit = function(){ 
-    document.querySelector('.userEmailDiv').style.display = "block"
-    document.querySelector('.loginBtn').style.display ="none"
-    document.querySelector('.submitBtn').style.display ="inline-block"
-    document.querySelector('.regNewUser').style.display ="none"
-    document.querySelector('.existingUser').style.display ="block"
-}
-// Existing User Login Display
-const existingLogin = function(){
-    document.querySelector('.userEmailDiv').style.display = "none"
-    document.querySelector('.loginBtn').style.display ="inline-block"
-    document.querySelector('.submitBtn').style.display ="none"
-    document.querySelector('.regNewUser').style.display ="block"
-    document.querySelector('.existingUser').style.display ="none"
-}
+// Switch Display for new/existing User
+const switchUserInit = function () {
+  submitEl.closest('.form__row').classList.toggle('form__row--hidden');
+  userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
+  loginEl.closest('.form__row').classList.toggle('form__row--hidden');
+  regNewUserEl.closest('.form__row').classList.toggle('form__row--hidden');
+  existingUserEl.closest('.form__row').classList.toggle('form__row--hidden');
+};
 
 ///////////////////////////// button callback
 
@@ -103,17 +110,13 @@ const existingLogin = function(){
 submitEl.addEventListener('click', pushObj);
 
 // Change CSS to New User
-regNewUserEl.addEventListener('click', newUserinit)
+regNewUserEl.addEventListener('click', switchUserInit);
 
 // Change CSS to Existing User Login
-existingUserEl.addEventListener('click', existingLogin)
+existingUserEl.addEventListener('click', switchUserInit);
 
-// Login Existing User 
-loginEl.addEventListener('click', checkAccLogin)
+// Login Existing User
+loginEl.addEventListener('click', checkAccLogin);
 
-
-
-
-console.log(localStorage)
-console.log(users)
-
+console.log(localStorage);
+console.log(users);
