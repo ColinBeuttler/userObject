@@ -19,17 +19,6 @@ const existingUserEl = document.querySelector('.existingUser');
 // let existingUsers = JSON.parse(localStorage.getItem(users));
 // existingUser = existingUser ? existingUser.split(',') : [];
 
-// // app functions
-
-// class App {
-//      #userObj = []
-
-//      constructor(){
-//          form.addEventListener('submit', this._userObj.bind(this))
-
-//      }
-// }
-
 // const userName = JSON.stringify(userNameEl.value)
 // const userPassword = JSON.stringify(userPasswordEl.value)
 
