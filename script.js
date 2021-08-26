@@ -27,7 +27,7 @@ const existingUserEl = document.querySelector('.existingUser');
 // App Object
 class App {
   // User Array
-  users = [];
+  #users = [];
 
   constructor() {
     // get local Storage///////////////////////////// button callback
@@ -70,7 +70,6 @@ class App {
         .classList.toggle('form__row--hidden');
     });
 
-    // Login Existing User
     // / Login existing user/ check for account
     loginEl.addEventListener('click', function () {
       formEl.remove();
@@ -105,4 +104,4 @@ class UserObj {
 }
 
 console.log(localStorage);
-console.log(users);
+// console.log(users);
