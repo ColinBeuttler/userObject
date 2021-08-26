@@ -11,8 +11,6 @@ const headerEl = document.querySelector('.header');
 const regNewUserEl = document.querySelector('.regNewUser');
 const existingUserEl = document.querySelector('.existingUser');
 
-
-
 // localStorage.setItem('accounts', JSON.stringify(users));
 
 // let welcomeMsgEle = document.createElement('div');
@@ -38,17 +36,61 @@ const existingUserEl = document.querySelector('.existingUser');
 // console.log(userNameEl, userPasswordEl);
 
 // App Object
-class App{
+class App {
+  // User Array
+  users = [];
 
-// User Array
- users = [];
+  constructor() {
+    // get local Storage///////////////////////////// button callback
+    /////////////////////////// Button Methods
 
-  constructor(){
-     // get local Storage
-     this._getLocalStorage();
+    // Submit New User to Accounts
+    submitEl.addEventListener('click', function () {
+      // user oject created
+      const newAccount = new UserObj();
+      // pushed to user array
+      users.push(newAccount);
+      formEl.remove();
+      headerEl.append(`\n Welcome ${newAccount.userName}`);
+      console.log('added', { newAccount });
+      localStorage.setItem('accounts', JSON.stringify(users));
+    });
 
+    ////////////////////// Hide/Show CSS display
+    // Switch Display for new/existing User
+
+    // Change CSS to New User
+    regNewUserEl.addEventListener('click', function () {
+      submitEl.closest('.form__row').classList.toggle('form__row--hidden');
+      userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
+      loginEl.closest('.form__row').classList.toggle('form__row--hidden');
+      regNewUserEl.closest('.form__row').classList.toggle('form__row--hidden');
+      existingUserEl
+        .closest('.form__row')
+        .classList.toggle('form__row--hidden');
+    });
+
+    // Change CSS to Existing User Login
+    existingUserEl.addEventListener('click', function () {
+      submitEl.closest('.form__row').classList.toggle('form__row--hidden');
+      userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
+      loginEl.closest('.form__row').classList.toggle('form__row--hidden');
+      regNewUserEl.closest('.form__row').classList.toggle('form__row--hidden');
+      existingUserEl
+        .closest('.form__row')
+        .classList.toggle('form__row--hidden');
+    });
+
+    // Login Existing User
+    // / Login existing user/ check for account
+    loginEl.addEventListener('click', function () {
+      formEl.remove();
+      console.log('logged in');
+      headerEl.append(`\n Welcome Back`);
+    });
+
+    this._getLocalStorage();
   }
-  
 
   _setLocalStorage() {
     localStorage.setItem('accounts', JSON.stringify(this.users));
@@ -61,8 +103,8 @@ class App{
     this.#users.forEach(user => {
       this._renderWorkout(user);
     });
-} }
-
+  }
+}
 
 // Object Class Prototypes
 class UserObj {
@@ -72,51 +114,6 @@ class UserObj {
     this.userPassword = document.querySelector('.userPassword--Input').value;
   }
 }
-
-/////////////////////////// Button Methods
-
-// Login existing user/ check for account
-const checkAccLogin = function () {
-  formEl.remove();
-  console.log('logged in');
-  headerEl.append(`\n Welcome Back`);
-};
-
-// create User Object
-const pushObj = function () {
-  // user oject created
-  const newAccount = new UserObj();
-  // pushed to user array
-  users.push(newAccount);
-  formEl.remove();
-  headerEl.append(`\n Welcome ${newAccount.userName}`);
-  console.log('added', { newAccount });
-  localStorage.setItem('accounts', JSON.stringify(users));
-};
-
-////////////////////// Hide/Show CSS display
-// Switch Display for new/existing User
-const switchUserInit = function () {
-  submitEl.closest('.form__row').classList.toggle('form__row--hidden');
-  userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
-  loginEl.closest('.form__row').classList.toggle('form__row--hidden');
-  regNewUserEl.closest('.form__row').classList.toggle('form__row--hidden');
-  existingUserEl.closest('.form__row').classList.toggle('form__row--hidden');
-};
-
-///////////////////////////// button callback
-
-// Submit New User to Accounts
-submitEl.addEventListener('click', pushObj);
-
-// Change CSS to New User
-regNewUserEl.addEventListener('click', switchUserInit);
-
-// Change CSS to Existing User Login
-existingUserEl.addEventListener('click', switchUserInit);
-
-// Login Existing User
-loginEl.addEventListener('click', checkAccLogin);
 
 console.log(localStorage);
 console.log(users);
