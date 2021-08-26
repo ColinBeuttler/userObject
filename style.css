@@ -34,14 +34,16 @@ h1 {
 
 .submitBtn {
   color: ghostwhite;
-  background-color: seagreen;
+  background-color: rgb(189, 54, 159);
+  cursor: pointer;
   /* display: none; */
 }
 
 .loginBtn {
   color: ghostwhite;
-  background-color: seagreen;
+  background-color: rgb(189, 54, 159);
   display: inline-block;
+  cursor: pointer;
 }
 
 .regNewUser {

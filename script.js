@@ -105,3 +105,5 @@ class UserObj {
 
 console.log(localStorage);
 // console.log(users);
+
+const app = new App();
