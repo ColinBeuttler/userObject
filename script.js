@@ -27,7 +27,8 @@ const existingUserEl = document.querySelector('.existingUser');
 // App Object
 class App {
   // User Array
-  #users = [];
+  // #users;
+  users = [];
 
   constructor() {
     // get local Storage///////////////////////////// button callback
@@ -87,10 +88,10 @@ class App {
     const data = JSON.parse(localStorage.getItem('accounts'));
     if (!data) return;
 
-    this.#users = data;
-    this.#users.forEach(user => {
-      this._renderWorkout(user);
-    });
+    // this.#users = data;
+    // this.#users.forEach(user => {
+    //   this._renderWorkout(user);
+    // });
   }
 }
 
