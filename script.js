@@ -81,6 +81,11 @@ class App {
     this._getLocalStorage();
   }
 
+  _newUserInput() {
+    const validEmail = (...inputs) => inputs.includes('@', '.com');
+    const validInputs = (...inputs) => inputs.every(inp => inp != null);
+  }
+
   _setLocalStorage() {
     localStorage.setItem('accounts', JSON.stringify(this.users));
   }
