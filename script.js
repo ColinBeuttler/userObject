@@ -48,28 +48,11 @@ class App {
 
     ////////////////////// Hide/Show CSS display
     // Switch Display for new/existing User
-
     // Change CSS to New User
-    regNewUserEl.addEventListener('click', function () {
-      submitEl.closest('.form__row').classList.toggle('form__row--hidden');
-      userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
-      loginEl.closest('.form__row').classList.toggle('form__row--hidden');
-      regNewUserEl.closest('.form__row').classList.toggle('form__row--hidden');
-      existingUserEl
-        .closest('.form__row')
-        .classList.toggle('form__row--hidden');
-    });
+    regNewUserEl.addEventListener('click', this._toggleUserForm);
 
     // Change CSS to Existing User Login
-    existingUserEl.addEventListener('click', function () {
-      submitEl.closest('.form__row').classList.toggle('form__row--hidden');
-      userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
-      loginEl.closest('.form__row').classList.toggle('form__row--hidden');
-      regNewUserEl.closest('.form__row').classList.toggle('form__row--hidden');
-      existingUserEl
-        .closest('.form__row')
-        .classList.toggle('form__row--hidden');
-    });
+    existingUserEl.addEventListener('click', this._toggleUserForm);
 
     // / Login existing user/ check for account
     loginEl.addEventListener('click', function () {
@@ -91,6 +74,13 @@ class App {
     const userName = userNameEl.value;
     const userPassword = userPasswordEl.value;
     let account;
+  }
+  _toggleUserForm() {
+    submitEl.closest('.form__row').classList.toggle('form__row--hidden');
+    userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
+    loginEl.closest('.form__row').classList.toggle('form__row--hidden');
+    regNewUserEl.closest('.form__row').classList.toggle('form__row--hidden');
+    existingUserEl.closest('.form__row').classList.toggle('form__row--hidden');
   }
 
   _setLocalStorage() {
