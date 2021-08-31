@@ -31,23 +31,14 @@ class App {
   users = [];
 
   constructor() {
-    // get local Storage///////////////////////////// button callback
-    /////////////////////////// Button Methods
+    // get local Storage//
+    this._getLocalStorage();
+
+    /////// Event Listeners
 
     // Submit New User to Accounts
-    submitEl.addEventListener('click', function () {
-      // user oject created
-      const newAccount = new UserObj();
-      // pushed to user array
-      users.push(newAccount);
-      formEl.remove();
-      headerEl.append(`\n Welcome ${newAccount.userName}`);
-      console.log('added', { newAccount });
-      localStorage.setItem('accounts', JSON.stringify(users));
-    });
+    submitEl.addEventListener('click', this._newUserInput);
 
-    ////////////////////// Hide/Show CSS display
-    // Switch Display for new/existing User
     // Change CSS to New User
     regNewUserEl.addEventListener('click', this._toggleUserForm);
 
@@ -60,8 +51,6 @@ class App {
       console.log('logged in');
       headerEl.append(`\n Welcome Back`);
     });
-
-    this._getLocalStorage();
   }
 
   _newUserInput(e) {
@@ -73,8 +62,23 @@ class App {
     const userEmail = userEmailEl.value;
     const userName = userNameEl.value;
     const userPassword = userPasswordEl.value;
-    let account;
+    let newAccount;
+
+    if (!validEmail(userEmail) || !validInputs(userName, userPassword)) {
+      return alert('not valid');
+    }
+    // user oject created
+    newAccount = new UserObj(userEmail, userName, userPassword);
+    // pushed to user array
+    this.users.push(newAccount);
+    formEl.remove();
+    headerEl.append(`\n Welcome ${newAccount.userName}`);
+    console.log('added', { newAccount });
+    this._setLocalStorage();
   }
+
+  ////////////////////// Hide/Show CSS display
+  // Switch Display for new/existing User
   _toggleUserForm() {
     submitEl.closest('.form__row').classList.toggle('form__row--hidden');
     userEmailEl.closest('.form__row').classList.toggle('form__row--hidden');
@@ -99,10 +103,10 @@ class App {
 
 // Object Class Prototypes
 class UserObj {
-  constructor() {
-    this.userEmail = document.querySelector('.userEmail--Input').value;
-    this.userName = document.querySelector('.userName--Input').value;
-    this.userPassword = document.querySelector('.userPassword--Input').value;
+  constructor(userEmail, userName, userPassword) {
+    this.userEmail = userEmail;
+    this.userName = userName;
+    this.userPassword = userPassword;
   }
 }
 
