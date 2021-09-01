@@ -54,7 +54,7 @@ class App {
   }
 
   _newUserInput(e) {
-    const validEmail = (...inputs) => inputs.includes('@', '.com');
+    const validEmail = (...inputs) => inputs.includes('@');
     const validInputs = (...inputs) => inputs.every(inp => inp != ' ');
 
     e.preventDefault();
@@ -66,15 +66,16 @@ class App {
 
     if (!validEmail(userEmail) || !validInputs(userName, userPassword)) {
       return alert('not valid');
+    } else {
+      // user oject created
+      newAccount = new UserObj(userEmail, userName, userPassword);
+      // pushed to user array
+      this.users.push(newAccount);
+      formEl.remove();
+      headerEl.append(`\n Welcome ${newAccount.userName}`);
+      console.log('added', { newAccount });
+      this._setLocalStorage();
     }
-    // user oject created
-    newAccount = new UserObj(userEmail, userName, userPassword);
-    // pushed to user array
-    this.users.push(newAccount);
-    formEl.remove();
-    headerEl.append(`\n Welcome ${newAccount.userName}`);
-    console.log('added', { newAccount });
-    this._setLocalStorage();
   }
 
   ////////////////////// Hide/Show CSS display
