@@ -22,13 +22,20 @@ const existingUserEl = document.querySelector('.existingUser');
 // const userName = JSON.stringify(userNameEl.value)
 // const userPassword = JSON.stringify(userPasswordEl.value)
 
-// console.log(userNameEl, userPasswordEl);
+// Object Class Prototypes
+class UserObj {
+  constructor(userEmail, userName, userPassword) {
+    this.userEmail = userEmail;
+    this.userName = userName;
+    this.userPassword = userPassword;
+  }
+}
 
 // App Object
 class App {
   // User Array
   // #users;
-  users = [];
+  #users = [];
 
   constructor() {
     // get local Storage//
@@ -75,8 +82,8 @@ class App {
     console.log('added', { newAccount });
 
     // pushed to user array
-    this.users.push(newAccount);
-    console.log(newAccount);
+    this.#users.push(newAccount);
+
     this._setLocalStorage();
   }
 
@@ -91,22 +98,13 @@ class App {
   }
 
   _setLocalStorage() {
-    localStorage.setItem('accounts', JSON.stringify(this.users));
+    localStorage.setItem('accounts', JSON.stringify(this.#users));
   }
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('accounts'));
-    if (!data) return;
+    // if (!data) return;
 
-    this.users = data;
-  }
-}
-
-// Object Class Prototypes
-class UserObj {
-  constructor(userEmail, userName, userPassword) {
-    this.userEmail = userEmail;
-    this.userName = userName;
-    this.userPassword = userPassword;
+    // this.users = data;
   }
 }
 
