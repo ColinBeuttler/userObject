@@ -35,7 +35,6 @@ class UserObj {
 class App {
   // User Array
   // #users;
-  #users = [];
 
   constructor() {
     // get local Storage//
@@ -65,7 +64,7 @@ class App {
     const validInputs = (...inputs) => inputs.every(inp => inp != ' ');
 
     e.preventDefault();
-
+    let users = [];
     const userEmail = userEmailEl.value;
     const userName = userNameEl.value;
     const userPassword = userPasswordEl.value;
@@ -82,7 +81,8 @@ class App {
     console.log('added', { newAccount });
 
     // pushed to user array
-    this.#users.push(newAccount);
+    users.push(newAccount);
+    console.log(users);
 
     this._setLocalStorage();
   }
@@ -98,7 +98,7 @@ class App {
   }
 
   _setLocalStorage() {
-    localStorage.setItem('accounts', JSON.stringify(this.#users));
+    localStorage.setItem('accounts', JSON.stringify(users));
   }
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('accounts'));
