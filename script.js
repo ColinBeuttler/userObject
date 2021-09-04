@@ -102,7 +102,7 @@ class App {
   }
   _getLocalStorage() {
     const data = users.push(JSON.parse(localStorage.getItem('accounts')));
-    // if (!data) return;
+    if (!data) return;
 
     // this.users = data;
   }
