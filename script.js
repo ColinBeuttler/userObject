@@ -84,7 +84,7 @@ class App {
     users.push(newAccount);
     console.log(users);
 
-    this._setLocalStorage();
+    this._setLocalStorage;
   }
 
   ////////////////////// Hide/Show CSS display
@@ -101,7 +101,7 @@ class App {
     localStorage.setItem('accounts', JSON.stringify(users));
   }
   _getLocalStorage() {
-    const data = JSON.parse(localStorage.getItem('accounts'));
+    const data = users.push(JSON.parse(localStorage.getItem('accounts')));
     // if (!data) return;
 
     // this.users = data;
