@@ -52,11 +52,20 @@ class App {
     existingUserEl.addEventListener('click', this._toggleUserForm);
 
     // / Login existing user/ check for account
-    loginEl.addEventListener('click', function () {
-      formEl.remove();
-      console.log('logged in');
-      headerEl.append(`\n Welcome Back`);
-    });
+    loginEl.addEventListener('click', this._checkExistingAccount);
+  }
+  _checkExistingAccount() {
+    const existingAcc = JSON.parse(localStorage.getItem('accounts'));
+    const validAcc = inputs => inputs === existingAcc;
+    const validPassword = inputs => inputs === existingAcc;
+
+    if (!validAcc(userName) && !validPassword(userPassword)) {
+      return;
+    }
+
+    formEl.remove();
+    console.log('logged in');
+    headerEl.append(`\n Welcome Back`);
   }
 
   _newUserInput(e) {
@@ -98,10 +107,10 @@ class App {
   }
 
   _setLocalStorage() {
-    localStorage.setItem('accounts', JSON.stringify(users));
+    localStorage.setItem('accounts', JSON.stringify(this.users));
   }
   _getLocalStorage() {
-    const data = users.push(JSON.parse(localStorage.getItem('accounts')));
+    const data = JSON.parse(localStorage.getItem('accounts'));
     if (!data) return;
 
     // this.users = data;
